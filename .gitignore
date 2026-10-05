@@ -1,0 +1,10 @@
+*.pptx
+*.png
+*.jpg
+*.jpeg
+*.zip
+*.audit.json
+test-output/
+projects/
+__pycache__/
+.env

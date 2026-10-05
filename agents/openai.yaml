@@ -1,0 +1,6 @@
+interface:
+  display_name: "ImageGen 素材与 Office PPT"
+  short_description: "先生成登记的视觉素材，再由本机 PowerPoint 精确组装并导出正式效果图"
+  default_prompt: "使用 $imagegen-office-ppt，根据我的逐页 MD 和参考 PPT，先提供四种风格预览，待我选择并继续后制作正式 PPT。"
+policy:
+  allow_implicit_invocation: true
