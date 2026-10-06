@@ -5,6 +5,7 @@ $root = Split-Path -Parent $PSScriptRoot
 $required = @('SKILL.md','agents/openai.yaml','references/workflow.md','references/layout-library.md','references/design-contract.md','references/acceptance.md','examples/layout-library.json','examples/slide-plan.json','examples/asset-manifest.json','examples/state.json','scripts/common.ps1','scripts/check_environment.ps1','scripts/assemble_powerpoint.ps1','scripts/export_slides.ps1','scripts/smoke_test.ps1')
 foreach ($p in $required) { if (-not (Test-Path -LiteralPath (Join-Path $root $p))) { throw "Missing file: $p" } }
 if (-not (Test-Path -LiteralPath (Join-Path $root 'references/content-modes.md'))) { throw 'Missing content mode rules' }
+if (-not (Test-Path -LiteralPath (Join-Path $root 'references/visual-components.md'))) { throw 'Missing visual component rules' }
 foreach ($p in @('references/visual-design.md','references/color-selection.md','assets/palettes.json','assets/palette-board.png','assets/palette-board.json','scripts/create_theme.ps1','scripts/export_palette_board.ps1')) {
     if (-not (Test-Path -LiteralPath (Join-Path $root $p))) { throw "Missing v2.2 file: $p" }
 }

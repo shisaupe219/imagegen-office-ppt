@@ -69,6 +69,14 @@ function Add-NativeShape($Slide, $Box, [string]$Name) {
     $shape.Name = $Name
     $fill = Value-Or $Box 'fill' 'DFEBF5'
     if ($fill -eq 'none') { $shape.Fill.Visible = 0 } else { $shape.Fill.Solid(); $shape.Fill.ForeColor.RGB = Color-Value $fill }
+    $gradient = Value-Or $Box 'fill_gradient' $null
+    if ($null -ne $gradient) {
+        $style = switch (Value-Or $gradient 'direction' 'horizontal') { 'horizontal' {2} 'vertical' {1} default {throw 'Gradient supports horizontal/vertical only'} }
+        $shape.Fill.Visible = -1
+        $shape.Fill.TwoColorGradient($style,1)
+        $shape.Fill.ForeColor.RGB = Color-Value $gradient.from
+        $shape.Fill.BackColor.RGB = Color-Value $gradient.to
+    }
     $lineColor = Value-Or $Box 'line_color' '073D86'
     if ($lineColor -eq 'none') { $shape.Line.Visible = 0 } else { $shape.Line.ForeColor.RGB = Color-Value $lineColor; $shape.Line.Weight = [single](Value-Or $Box 'line_width' 1) }
     return $shape
