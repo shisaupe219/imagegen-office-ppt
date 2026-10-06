@@ -1,12 +1,11 @@
 {
-  "phase": "intake",
-  "selected_style": null,
-  "selection_message": null,
-  "continue_message": null,
-  "sample_approval_message": null,
-  "asset_policy": "strict-imagegen",
-  "native_evidence_exception": false,
-  "completed_slides": [],
+  "phase": "planning",
+  "asset_policy": "hybrid",
+  "reference_inputs": [],
   "input_hashes": {},
-  "final_pptx_sha256": null
+  "sample_pages": [],
+  "sample_approval_message": null,
+  "selected_style": "reference",
+  "completed_slides": [],
+  "pending_items": []
 }

@@ -7,7 +7,7 @@ $app = $null; $deck = $null
 try {
     $app = New-Object -ComObject PowerPoint.Application
     $deck = $app.Presentations.Add(0)
-    [pscustomobject]@{ powerpoint_version = $app.Version; can_create_presentation = $true; native_charts_supported_by_script = $false } | ConvertTo-Json
+    [pscustomobject]@{ powerpoint_version = $app.Version; can_create_presentation = $true; editable_shape_charts_supported = $true; excel_linked_charts_supported_by_script = $false } | ConvertTo-Json
 } finally {
     if ($null -ne $deck) { $deck.Close(); Release-Com $deck }
     Release-Com $app

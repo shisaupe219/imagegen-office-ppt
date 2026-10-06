@@ -3,9 +3,11 @@ param(
     [Parameter(Mandatory)][string]$ManifestPath,
     [Parameter(Mandatory)][string]$AssetPath,
     [Parameter(Mandatory)][string]$Id,
-    [Parameter(Mandatory)][string]$Prompt,
+    [string]$Prompt,
     [Parameter(Mandatory)][string]$Purpose,
-    [Parameter(Mandatory)][string]$GenerationRecord
+    [string]$GenerationRecord,
+    [ValidateSet('imagegen','user-provided')][string]$Origin = 'imagegen',
+    [string]$Source
 )
 . "$PSScriptRoot/common.ps1"
 if ($Id -notmatch '^[a-zA-Z0-9_-]+$') { throw 'Asset ID must contain letters, numbers, underscore or hyphen' }
@@ -15,7 +17,9 @@ $file = (Resolve-Path -LiteralPath $AssetPath).Path
 if (-not $file.StartsWith($root + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) { throw 'Copy asset inside project first' }
 $data = if (Test-Path -LiteralPath $manifestFull) { Read-Json $manifestFull } else { [pscustomobject]@{assets=@()} }
 if (@($data.assets | Where-Object id -eq $Id).Count) { throw 'Asset ID already registered; use a new version ID' }
-$entry = [pscustomobject]@{id=$Id; path=$file.Substring($root.Length+1).Replace('\','/'); sha256=(Get-FileHash -LiteralPath $file).Hash; origin='imagegen'; prompt=$Prompt; purpose=$Purpose; generation_record=$GenerationRecord}
+if ($Origin -eq 'imagegen' -and ([string]::IsNullOrWhiteSpace($Prompt) -or [string]::IsNullOrWhiteSpace($GenerationRecord))) { throw 'ImageGen prompt and generation record required' }
+if ($Origin -eq 'user-provided' -and [string]::IsNullOrWhiteSpace($Source)) { throw 'User asset source required' }
+$entry = [pscustomobject]@{id=$Id; path=$file.Substring($root.Length+1).Replace('\','/'); sha256=(Get-FileHash -LiteralPath $file).Hash; origin=$Origin; prompt=$Prompt; purpose=$Purpose; generation_record=$GenerationRecord; source=$Source}
 $data.assets = @($data.assets) + $entry
 $temp = "$manifestFull.$([Guid]::NewGuid().ToString('N')).tmp"
 try {

@@ -1,11 +1,523 @@
 {
-  "canvas": {"width": 960, "height": 540, "background": "FFFFFF"},
-  "title_style": {"x": 48, "y": 30, "w": 864, "h": 60, "font": "Microsoft YaHei", "size": 30, "color": "16324F", "bold": true},
-  "page_style": {"x": 878, "y": 502, "w": 40, "h": 22, "font": "Microsoft YaHei", "size": 12, "color": "555555", "align": "right"},
+  "asset_policy": "hybrid",
+  "canvas": {
+    "width": 960,
+    "height": 540,
+    "background": "FFFFFF"
+  },
+  "title_style": {
+    "x": 32,
+    "y": 18,
+    "w": 896,
+    "h": 45,
+    "font": "Microsoft YaHei",
+    "size": 32,
+    "color": "073D86",
+    "bold": true
+  },
+  "page_style": {
+    "x": 884,
+    "y": 507,
+    "w": 40,
+    "h": 22,
+    "size": 12,
+    "color": "586B81",
+    "align": "right"
+  },
   "slides": [
-    {"kind": "cover", "title": "PowerPoint 自动化验证", "core_message": "验证原生中文文字与导出", "evidence": [], "sources": [], "elements": [{"type": "text", "text": "此页用于技术验证，不是正式制作效果。", "x": 48, "y": 150, "w": 820, "h": 90, "size": 24, "color": "16324F"}]},
-    {"kind": "toc", "title": "验证内容", "core_message": "页面结构、标题和页码", "evidence": [], "sources": [], "elements": [{"type": "text", "text": "页面结构\n中文文字\n标题与页码", "x": 48, "y": 130, "w": 820, "h": 180, "size": 24}]},
-    {"kind": "body", "title": "标题采用全局位置与字号", "core_message": "正文标题由统一规范生成", "evidence": [], "sources": [], "elements": [{"type": "text", "text": "登记图像通过 asset_id 引用；正式项目生成素材后加入图片元素。", "x": 48, "y": 145, "w": 800, "h": 140, "size": 24}]},
-    {"kind": "ending", "title": "技术验证结束", "core_message": "确认脚本能够保存和导出", "evidence": [], "sources": [], "elements": []}
+    {
+      "kind": "body",
+      "title": "技术问题与路线：原生模块测试",
+      "core_message": "验证版式和原生对象，不是正式设计样稿",
+      "evidence": [
+        "合成测试数据"
+      ],
+      "sources": [
+        "内置技术测试"
+      ],
+      "layout_id": "problem",
+      "reference_page": "无用户模板",
+      "notes": "所有数值均为技术测试，不代表项目证据。",
+      "elements": [
+        {
+          "type": "line",
+          "x": 32,
+          "y": 68,
+          "w": 896,
+          "h": 0
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 78,
+          "w": 896,
+          "h": 52,
+          "fill": "DFEBF5"
+        },
+        {
+          "type": "text",
+          "text": "演示数据仅用于脚本验证，不代表真实研究结果",
+          "x": 48,
+          "y": 89,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "highlights": [
+            {
+              "text": "仅用于脚本验证",
+              "color": "BE282B"
+            }
+          ]
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 150,
+          "w": 430,
+          "h": 245,
+          "fill": "none"
+        },
+        {
+          "type": "shape",
+          "x": 498,
+          "y": 150,
+          "w": 430,
+          "h": 245,
+          "fill": "none"
+        },
+        {
+          "type": "text",
+          "text": "问题模块",
+          "x": 52,
+          "y": 163,
+          "w": 390,
+          "h": 40,
+          "size": 24,
+          "color": "073D86",
+          "bold": true
+        },
+        {
+          "type": "text",
+          "text": "因果关系与准确几何",
+          "x": 518,
+          "y": 163,
+          "w": 390,
+          "h": 40,
+          "size": 24,
+          "color": "073D86",
+          "bold": true
+        },
+        {
+          "type": "shape",
+          "x": 70,
+          "y": 225,
+          "w": 150,
+          "h": 65,
+          "fill": "073D86"
+        },
+        {
+          "type": "text",
+          "text": "输入条件",
+          "x": 85,
+          "y": 244,
+          "w": 120,
+          "h": 30,
+          "size": 20,
+          "color": "FFFFFF"
+        },
+        {
+          "type": "shape",
+          "x": 275,
+          "y": 240,
+          "w": 90,
+          "h": 35,
+          "shape": "rightArrow",
+          "fill": "BCD5E9",
+          "line_color": "none"
+        },
+        {
+          "type": "text",
+          "text": "响应结果",
+          "x": 275,
+          "y": 305,
+          "w": 150,
+          "h": 40,
+          "size": 20,
+          "color": "073D86"
+        },
+        {
+          "type": "shape",
+          "x": 548,
+          "y": 222,
+          "w": 110,
+          "h": 65,
+          "shape": "ellipse",
+          "fill": "DFEBF5"
+        },
+        {
+          "type": "text",
+          "text": "条件",
+          "x": 565,
+          "y": 240,
+          "w": 80,
+          "h": 30,
+          "size": 20,
+          "color": "073D86"
+        },
+        {
+          "type": "line",
+          "x": 666,
+          "y": 251,
+          "w": 90,
+          "h": 0,
+          "end_arrow": true
+        },
+        {
+          "type": "shape",
+          "x": 766,
+          "y": 222,
+          "w": 110,
+          "h": 65,
+          "shape": "roundrect",
+          "fill": "DFEBF5"
+        },
+        {
+          "type": "text",
+          "text": "输出",
+          "x": 783,
+          "y": 240,
+          "w": 80,
+          "h": 30,
+          "size": 20,
+          "color": "073D86"
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 446,
+          "w": 896,
+          "h": 45,
+          "fill": "BCD5E9"
+        },
+        {
+          "type": "text",
+          "text": "结论：版式组件可编辑，关系由原生箭头表达",
+          "x": 48,
+          "y": 455,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "kind": "body",
+      "title": "数据对比：column技术测试",
+      "core_message": "验证版式和原生对象，不是正式设计样稿",
+      "evidence": [
+        "合成测试数据"
+      ],
+      "sources": [
+        "内置技术测试"
+      ],
+      "layout_id": "comparison",
+      "reference_page": "无用户模板",
+      "notes": "所有数值均为技术测试，不代表项目证据。",
+      "elements": [
+        {
+          "type": "line",
+          "x": 32,
+          "y": 68,
+          "w": 896,
+          "h": 0
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 78,
+          "w": 896,
+          "h": 52,
+          "fill": "DFEBF5"
+        },
+        {
+          "type": "text",
+          "text": "演示数据仅用于脚本验证，不代表真实研究结果",
+          "x": 48,
+          "y": 89,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "highlights": [
+            {
+              "text": "仅用于脚本验证",
+              "color": "BE282B"
+            }
+          ]
+        },
+        {
+          "type": "chart",
+          "chart_type": "column",
+          "x": 48,
+          "y": 153,
+          "w": 864,
+          "h": 284,
+          "categories": [
+            "条件A",
+            "条件B",
+            "条件C"
+          ],
+          "series": [
+            {
+              "name": "测试组一",
+              "color": "073D86",
+              "values": [
+                12,
+                18,
+                24
+              ]
+            },
+            {
+              "name": "测试组二",
+              "color": "BE282B",
+              "values": [
+                9,
+                13,
+                20
+              ]
+            }
+          ],
+          "min": 0,
+          "max": 30,
+          "unit": "测试单位"
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 446,
+          "w": 896,
+          "h": 45,
+          "fill": "BCD5E9"
+        },
+        {
+          "type": "text",
+          "text": "结论：刻度与数值准确，图表对象可单独编辑",
+          "x": 48,
+          "y": 455,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "kind": "body",
+      "title": "数据对比：bar技术测试",
+      "core_message": "验证版式和原生对象，不是正式设计样稿",
+      "evidence": [
+        "合成测试数据"
+      ],
+      "sources": [
+        "内置技术测试"
+      ],
+      "layout_id": "comparison",
+      "reference_page": "无用户模板",
+      "notes": "所有数值均为技术测试，不代表项目证据。",
+      "elements": [
+        {
+          "type": "line",
+          "x": 32,
+          "y": 68,
+          "w": 896,
+          "h": 0
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 78,
+          "w": 896,
+          "h": 52,
+          "fill": "DFEBF5"
+        },
+        {
+          "type": "text",
+          "text": "演示数据仅用于脚本验证，不代表真实研究结果",
+          "x": 48,
+          "y": 89,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "highlights": [
+            {
+              "text": "仅用于脚本验证",
+              "color": "BE282B"
+            }
+          ]
+        },
+        {
+          "type": "chart",
+          "chart_type": "bar",
+          "x": 48,
+          "y": 153,
+          "w": 864,
+          "h": 284,
+          "categories": [
+            "条件A",
+            "条件B",
+            "条件C"
+          ],
+          "series": [
+            {
+              "name": "测试组一",
+              "color": "073D86",
+              "values": [
+                12,
+                18,
+                24
+              ]
+            },
+            {
+              "name": "测试组二",
+              "color": "BE282B",
+              "values": [
+                9,
+                13,
+                20
+              ]
+            }
+          ],
+          "min": 0,
+          "max": 30,
+          "unit": "测试单位"
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 446,
+          "w": 896,
+          "h": 45,
+          "fill": "BCD5E9"
+        },
+        {
+          "type": "text",
+          "text": "结论：刻度与数值准确，图表对象可单独编辑",
+          "x": 48,
+          "y": 455,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "kind": "body",
+      "title": "数据对比：line技术测试",
+      "core_message": "验证版式和原生对象，不是正式设计样稿",
+      "evidence": [
+        "合成测试数据"
+      ],
+      "sources": [
+        "内置技术测试"
+      ],
+      "layout_id": "comparison",
+      "reference_page": "无用户模板",
+      "notes": "所有数值均为技术测试，不代表项目证据。",
+      "elements": [
+        {
+          "type": "line",
+          "x": 32,
+          "y": 68,
+          "w": 896,
+          "h": 0
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 78,
+          "w": 896,
+          "h": 52,
+          "fill": "DFEBF5"
+        },
+        {
+          "type": "text",
+          "text": "演示数据仅用于脚本验证，不代表真实研究结果",
+          "x": 48,
+          "y": 89,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "highlights": [
+            {
+              "text": "仅用于脚本验证",
+              "color": "BE282B"
+            }
+          ]
+        },
+        {
+          "type": "chart",
+          "chart_type": "line",
+          "x": 48,
+          "y": 153,
+          "w": 864,
+          "h": 284,
+          "categories": [
+            "条件A",
+            "条件B",
+            "条件C"
+          ],
+          "series": [
+            {
+              "name": "测试组一",
+              "color": "073D86",
+              "values": [
+                12,
+                18,
+                24
+              ]
+            },
+            {
+              "name": "测试组二",
+              "color": "BE282B",
+              "values": [
+                9,
+                13,
+                20
+              ]
+            }
+          ],
+          "min": 0,
+          "max": 30,
+          "unit": "测试单位"
+        },
+        {
+          "type": "shape",
+          "x": 32,
+          "y": 446,
+          "w": 896,
+          "h": 45,
+          "fill": "BCD5E9"
+        },
+        {
+          "type": "text",
+          "text": "结论：刻度与数值准确，图表对象可单独编辑",
+          "x": 48,
+          "y": 455,
+          "w": 864,
+          "h": 32,
+          "size": 22,
+          "color": "073D86",
+          "bold": true
+        }
+      ]
+    }
   ]
 }
