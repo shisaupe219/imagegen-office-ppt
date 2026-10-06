@@ -1,6 +1,6 @@
 interface:
   display_name: "参考版式与 ImageGen PPT"
   short_description: "复用参考汇报版式，ImageGen生成主要图片，PowerPoint绘制可编辑图形与准确图表"
-  default_prompt: "使用 $imagegen-office-ppt，根据我的逐页稿与参考PPT，沿用参考版式，主要图片调用ImageGen，先制作三张代表性正文样稿。"
+  default_prompt: "使用 $imagegen-office-ppt，根据逐页稿与参考PPT，先让我选择精简或详细模式，保留关键信息，主要图片调用ImageGen，制作三张代表性样稿；不要底部灰色注释。"
 policy:
   allow_implicit_invocation: true

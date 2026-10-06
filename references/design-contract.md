@@ -6,6 +6,7 @@
 
 - text：text,x,y,w,h,size,font,color,bold,align；可highlights数组，项text/color/bold，所有同短语局部强调。
 - image：asset_id,x,y,w,h,fit=contain/cover，不拉伸。
+- 图像内必要文字旁注属于同一image素材，登记时无需拆成text；核对其准确与可读性，并说明图内文字不可单独编辑。正文标题、页码仍为原生文字。不得生成底部灰色注释；来源/待核/制作说明存notes与独立清单，必要技术限定存正文或图内。
 - shape：x,y,w,h,shape=rect/roundrect/ellipse/rightArrow/downArrow，fill（none透明）、line_color、line_width。文字另放text。
 - line：x,y,w,h,color,width,end_arrow布尔；w或h可0；斜线从左上到右下。
 - chart：x,y,w,h,chart_type=bar/column/line，categories字符串数组、series数组(name/color/values)，min默认0、max自动、unit、show_values默认true、size默认14。仅非负数据，line至少两类，柱状图min必须0。图表由准确可编辑形状组成，不是Excel联动Chart。负值、误差线、双轴、对数、堆叠需独立实现并验证，不假装支持。

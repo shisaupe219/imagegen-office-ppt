@@ -1,10 +1,18 @@
-# imagegen-office-ppt v2
+# imagegen-office-ppt v2.1
 
 参考版式复用＋ImageGen主要图片＋Windows PowerPoint原生排版。
 
 将仓库文件夹放入 `~/.codex/skills/imagegen-office-ppt/`。需要Windows、PowerShell与Microsoft PowerPoint；无需python-pptx。
 
-用法：“使用 $imagegen-office-ppt，根据逐页稿与参考PPT，沿用参考版式，主要图片调用ImageGen，先制作三张代表性正文样稿。”
+用法：“使用 $imagegen-office-ppt，根据逐页稿与参考PPT，先选择精简或详细模式，保留关键依据、名称、人名、数据与条件；主要图片调用ImageGen，先制作三张代表性样稿，不要底部灰色注释。”
+
+## v2.1 内容保留与图像标注
+
+- 初期明确选择精简版/详细版；精简不删关键依据、名称、人名、数值、条件和论证链，详细版尽量保留全部有效信息。
+- 建立逐页信息映射，备注不算页面覆盖。图内旁注属于可见内容，需核验准确与可读性。
+- 不添加底部灰色注释或来源/待核/制作说明小字；页码、结论栏保留。必要技术边界放正文或图内，出处与制作记录放备注/清单。
+- 示意图与必要文字旁注可由ImageGen一体生成、作为同一素材；这些图内文字不能单独编辑。
+- 封面目录结合主题独立设计，简约大气。既有PPT不会因安装规则自动修改。
 
 v2支持局部红字、原生色块/边框/箭头、准确技术几何和基础bar/column/line图表。图表为可编辑形状，不是Excel联动Chart。默认不做四风格，参考版式优先，增加视觉验收门槛。用户明确要求时仍可四风格或严格ImageGen模式。
 
