@@ -2,9 +2,10 @@
 param(
     [Parameter(Mandatory)][string]$PlanPath,
     [Parameter(Mandatory)][string]$ManifestPath,
-    [Parameter(Mandatory)][string]$OutputPath
+    [string]$OutputPath
 )
 . "$PSScriptRoot/common.ps1"
+. "$PSScriptRoot/resolve_output_path.ps1"
 & "$PSScriptRoot/validate_presentation_plan.ps1" -PlanPath $PlanPath -ManifestPath $ManifestPath | Out-Null
 $plan = Read-Json $PlanPath
 $manifestFull = (Resolve-Path -LiteralPath $ManifestPath).Path
@@ -12,7 +13,7 @@ $root = Split-Path -Parent $manifestFull
 $manifest = Read-Json $manifestFull
 $policy = Value-Or $plan 'asset_policy' 'hybrid'
 if ($policy -notin @('hybrid','strict-imagegen')) { throw 'Unknown asset policy' }
-$output = [IO.Path]::GetFullPath($OutputPath)
+$output = Resolve-DeckOutput $OutputPath ((Value-Or $plan 'deck_title' 'Presentation')+'-可编辑版')
 if ([IO.Path]::GetExtension($output) -ne '.pptx') { throw 'Output must be .pptx' }
 if (Test-Path -LiteralPath $output) { throw 'Output already exists; use a versioned filename' }
 if (Test-Path -LiteralPath "$output.audit.json") { throw 'Audit already exists; use a versioned filename' }

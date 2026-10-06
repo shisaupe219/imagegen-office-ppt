@@ -39,3 +39,18 @@ text/title_style/page_style支持padding_left/right/top/bottom（point，默认0
 新正式plan必须含presentation_spec={speaker:'用户确认的姓名',presentation_date:'用户确认的时间'}；目录图片确有用户例外时记录toc_image_exception。每个body记录chapter_id（如一）、chapter_title、subtitle、logic_relation、icon_plan、image_plan；title为带编号完整一级标题，subtitle另建可见text。manifest每项asset_kind=icon/illustration/logo，可记录parent_asset_id、page_usage。ImageGen图标为栅格，不宣称可编辑矢量。
 
 validate_presentation_plan.ps1在组装前校验已启用规格的计划，检查封面显示、章节字段与编号、可见二级标题、图标来源和跨页配图重复。旧无presentation_spec示例仅作技术兼容测试，不作为新正式稿模板；不得为绕过规则在正式稿省略该字段。脚本不自动命名章节、生成图标或渲染subtitle，不能代替语义/视觉核验。
+
+## v2.5 两条输出路径与新预览机制
+
+按[输出模式与预览](output-and-preview.md)执行：内容模式后独立选择可编辑/整页图片模式；默认前六页四风格缩略图替代三页样稿。展示四种标题栏并记录实际选择，选定后制作正式稿。整页图片模式不拆每个图标，不套用原生文字/图形编辑验收；逐字核验完整页面。正式PPTX默认系统桌面，用户指定路径优先。
+
+## v2.5 命令
+
+```powershell
+& ./scripts/export_titlebar_board.ps1 -OutputDirectory ./planning/titlebar-preview
+& ./scripts/apply_titlebar_style.ps1 -PlanPath ./planning/plan.json -Style T2 -OutputPath ./planning/plan-t2.json
+& ./scripts/export_contact_sheet.ps1 -PreviewDirectory ./previews/style-a -OutputDirectory ./previews/style-a-overview -Limit 6 -Columns 2
+& ./scripts/assemble_image_powerpoint.ps1 -PlanPath ./planning/image-plan.json -ManifestPath ./asset-manifest.json
+```
+
+省略OutputPath时两个组装脚本生成桌面版本化名称，deck_title可提供主题。图片版另见output-and-preview.md的plan结构；不能将editable计划直接传给图片版。editable正式计划保存output_mode、selected_style、titlebar_style及确认消息；图片版相同选择存state/计划，不额外绘制原生标题栏。

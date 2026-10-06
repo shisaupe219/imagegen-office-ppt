@@ -8,7 +8,7 @@ param(
     [string]$GenerationRecord,
     [ValidateSet('imagegen','user-provided')][string]$Origin = 'imagegen',
     [string]$Source,
-    [ValidateSet('icon','illustration','logo')][string]$AssetKind = 'illustration',
+    [ValidateSet('icon','illustration','logo','slide')][string]$AssetKind = 'illustration',
     [string]$ParentAssetId,
     [int[]]$PageUsage = @()
 )

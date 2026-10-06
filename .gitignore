@@ -1,6 +1,7 @@
 *.pptx
 *.png
 !assets/palette-board.png
+!assets/titlebar-board.png
 *.jpg
 *.jpeg
 *.zip

@@ -1,6 +1,6 @@
 interface:
   display_name: "参考版式与 ImageGen PPT"
-  short_description: "选择内容模式与主色色板，保留论证细节，生成图像并以PowerPoint完成排版与视觉核验"
-  default_prompt: "使用 $imagegen-office-ppt，根据逐页稿与参考PPT，先让我选择内容模式和主色色板；保留关键信息，主要图片用ImageGen，封面整体设计，正文层级清楚，不加底部灰色注释。"
+  short_description: "选择内容与输出模式，预览前六页四种风格和标题栏，制作PPT并保存桌面"
+  default_prompt: "使用 $imagegen-office-ppt，根据逐页稿先让我选择精简/详细、可编辑/整页图片、主色和标题栏，展示前六页四风格供选择，保留关键信息并将正式PPT保存桌面。"
 policy:
   allow_implicit_invocation: true

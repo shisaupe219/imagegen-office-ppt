@@ -40,3 +40,6 @@
 
 ## v2.4 验证
 2026-10-06：包文件、入口frontmatter、链接、PowerShell语法、JSON与色板哈希检查通过。test_layout_spec.ps1实际生成并重新打开PowerPoint，核验内边距20点、垂直居中、24点字号对应30点行距、段后4点；实际PNG已查看。不同asset_id但相同sha256的场景图跨页复用被拒绝。新增文本溢出检查按扣除内边距后的可用区域计算。ImageGen图标/独立配图为新项目生成规则，本次未重做用户PPT。skill-creator通用quick_validate.py因运行时未安装PyYAML不可运行，未安装依赖；改用本包validate_package.ps1核验入口与结构。
+
+## v2.5 验证
+2026-10-06：新增两种输出路径、前六页四风格规则、四种标题栏与桌面默认保存。包frontmatter/引用/PowerShell语法/JSON/色板哈希检查通过。export_titlebar_board.ps1实际Office导出T1—T4并查看；apply_titlebar_style.ps1生成实际标题栏计划。图片组装用明确标识的合成技术样本（非ImageGen成品，未宣称真实生成来源）测试：PPTX每页只有一个pic、无sp文字覆盖，图片比例检查和整页放置通过。系统Desktop解析与现有文件重名版本化检查通过，未向桌面写入测试文件。本次未生成24页真实风格候选，未验证ImageGen图内文字质量/跨页一致性；这些必须在具体项目中人工验收。

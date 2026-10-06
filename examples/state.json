@@ -18,12 +18,21 @@
   "input_hashes": {},
   "sample_pages": [],
   "sample_approval_message": null,
-  "selected_style": "reference",
+  "selected_style": null,
   "completed_slides": [],
   "pending_items": [],
   "chapter_mapping": [],
   "icon_registry": [],
   "image_page_usage": [],
   "cover_metadata_confirmation": "",
-  "layout_review": []
+  "layout_review": [],
+  "output_mode": "editable",
+  "preview_styles": [],
+  "preview_page_ids": [],
+  "preview_content_mapping": [],
+  "style_confirmation_message": null,
+  "titlebar_style": null,
+  "titlebar_confirmation_message": null,
+  "desktop_path": null,
+  "final_output_path": null
 }
