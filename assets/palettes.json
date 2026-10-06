@@ -1,0 +1,10 @@
+{
+  "palettes": [
+    {"id":"A","name":"学院蓝","primary":"073D86","accent":"BE282B","pale":"DFEBF5","body":"24364C","background":"FFFFFF"},
+    {"id":"B","name":"交通青","primary":"0B5968","accent":"B86120","pale":"E0EFF0","body":"26363B","background":"FFFFFF"},
+    {"id":"C","name":"生态绿","primary":"205D48","accent":"A85E28","pale":"E3EFE8","body":"29382F","background":"FFFFFF"},
+    {"id":"D","name":"庄重红","primary":"8F2432","accent":"80612C","pale":"F3E7E9","body":"382C30","background":"FFFFFF"},
+    {"id":"E","name":"石墨金","primary":"343B45","accent":"8C642B","pale":"ECEEF1","body":"292E35","background":"FFFFFF"},
+    {"id":"F","name":"学术紫","primary":"51416E","accent":"A35B28","pale":"EBE7F2","body":"312D3C","background":"FFFFFF"}
+  ]
+}

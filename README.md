@@ -1,10 +1,16 @@
-# imagegen-office-ppt v2.1
+# imagegen-office-ppt v2.2
 
 参考版式复用＋ImageGen主要图片＋Windows PowerPoint原生排版。
 
 将仓库文件夹放入 `~/.codex/skills/imagegen-office-ppt/`。需要Windows、PowerShell与Microsoft PowerPoint；无需python-pptx。
 
-用法：“使用 $imagegen-office-ppt，根据逐页稿与参考PPT，先选择精简或详细模式，保留关键依据、名称、人名、数据与条件；主要图片调用ImageGen，先制作三张代表性样稿，不要底部灰色注释。”
+用法：“使用 $imagegen-office-ppt，根据逐页稿与参考PPT，展示色板让我点选主色，并选择精简或详细模式；保留关键依据、名称、人名、数据与条件，主要图片调用ImageGen，封面整体设计，不加底部灰色注释。”
+
+## v2.2 视觉修复与配色
+
+新增封面/目录构图、正文层级、机理图与图内旁注在最终尺寸的可读性、材料图解释作用、图文对应及页面节奏规则。先保真再美化，不以删内容解决设计问题。
+
+内置学院蓝、交通青、生态绿、庄重红、石墨金、学术紫六套角色色板，支持自定义HEX。export_palette_board.ps1由Office导出真实色板，展示后通过会话选项点选；create_theme.ps1生成主题配置，按角色填入新计划。两者不修改已有PPT或图片颜色；不是原生应用内实时主题编辑器。
 
 ## v2.1 内容保留与图像标注
 

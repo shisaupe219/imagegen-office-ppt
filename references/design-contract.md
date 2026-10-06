@@ -2,6 +2,8 @@
 
 单位point，元素按数组顺序从后到前。canvas/title_style/page_style/slides必填。正文标题全局统一，其余可title_box。slide含kind(cover/toc/body/ending)、title、core_message、evidence、sources、elements；可加notes、reference_page、layout_id、title_color、page_color。
 
+planning/theme.json由create_theme.ps1生成，包含colors角色和推荐标题/正文规范；组装脚本仍读取计划中的具体HEX，不会自动加载theme或改已有PPT。生成计划时按角色填值，并在state保存主题路径与用户选择。可增加first_focus、reading_order、visual_review记录设计决策；脚本不自动评判这些语义字段。
+
 ## 元素
 
 - text：text,x,y,w,h,size,font,color,bold,align；可highlights数组，项text/color/bold，所有同短语局部强调。
