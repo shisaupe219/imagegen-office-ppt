@@ -1,0 +1,45 @@
+{
+  "version": "2.6",
+  "canvas_px": {
+    "width": 1920,
+    "height": 1080
+  },
+  "canvas_pt": {
+    "width": 960,
+    "height": 540
+  },
+  "font": {
+    "family": "Microsoft YaHei",
+    "weight": "bold",
+    "alignment": "left"
+  },
+  "title": {
+    "x": 96,
+    "y": 48,
+    "w": 1728,
+    "h": 68,
+    "font_px": 54
+  },
+  "subtitle": {
+    "x": 96,
+    "y": 132,
+    "w": 1728,
+    "h": 48,
+    "font_px": 36
+  },
+  "t3_marker": {
+    "x": 56,
+    "y": 48,
+    "w": 8,
+    "h": 64
+  },
+  "body_top_px": 216,
+  "header_crop_px": [
+    32,
+    24,
+    1888,
+    200
+  ],
+  "coordinate_unit": "px",
+  "actual_render_requires_visual_review": true
+}

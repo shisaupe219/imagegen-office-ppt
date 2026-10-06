@@ -40,7 +40,7 @@ text/title_style/page_style支持padding_left/right/top/bottom（point，默认0
 
 validate_presentation_plan.ps1在组装前校验已启用规格的计划，检查封面显示、章节字段与编号、可见二级标题、图标来源和跨页配图重复。旧无presentation_spec示例仅作技术兼容测试，不作为新正式稿模板；不得为绕过规则在正式稿省略该字段。脚本不自动命名章节、生成图标或渲染subtitle，不能代替语义/视觉核验。
 
-## v2.5 两条输出路径与新预览机制
+## 两条输出路径与预览机制（现行v2.6）
 
 按[输出模式与预览](output-and-preview.md)执行：内容模式后独立选择可编辑/整页图片模式；默认前六页四风格缩略图替代三页样稿。展示四种标题栏并记录实际选择，选定后制作正式稿。整页图片模式不拆每个图标，不套用原生文字/图形编辑验收；逐字核验完整页面。正式PPTX默认系统桌面，用户指定路径优先。
 
@@ -54,3 +54,7 @@ validate_presentation_plan.ps1在组装前校验已启用规格的计划，检�
 ```
 
 省略OutputPath时两个组装脚本生成桌面版本化名称，deck_title可提供主题。图片版另见output-and-preview.md的plan结构；不能将editable计划直接传给图片版。editable正式计划保存output_mode、selected_style、titlebar_style及确认消息；图片版相同选择存state/计划，不额外绘制原生标题栏。
+
+## v2.6 图片标题栏契约
+
+图片版正式生产须额外保存项目titlebar-contract.json，按[物理规范](image-titlebar-contract.md)锁定像素、物理尺寸与换算。现有组装脚本只核验图像比例、转录及来源，不能测定栅格文字字号；titlebar_review为实际人工复核记录。

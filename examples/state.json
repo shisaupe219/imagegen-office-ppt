@@ -34,5 +34,10 @@
   "titlebar_style": null,
   "titlebar_confirmation_message": null,
   "desktop_path": null,
-  "final_output_path": null
+  "final_output_path": null,
+  "preview_strategy": "direct_contact_sheet",
+  "titlebar_contract_path": null,
+  "titlebar_reference_path": null,
+  "titlebar_comparison_path": null,
+  "titlebar_review": []
 }
