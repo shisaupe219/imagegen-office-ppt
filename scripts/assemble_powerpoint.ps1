@@ -5,6 +5,7 @@ param(
     [Parameter(Mandatory)][string]$OutputPath
 )
 . "$PSScriptRoot/common.ps1"
+& "$PSScriptRoot/validate_presentation_plan.ps1" -PlanPath $PlanPath -ManifestPath $ManifestPath | Out-Null
 $plan = Read-Json $PlanPath
 $manifestFull = (Resolve-Path -LiteralPath $ManifestPath).Path
 $root = Split-Path -Parent $manifestFull
@@ -120,7 +121,9 @@ try {
         foreach ($obj in $slide.Shapes) {
             $items += @{name=$obj.Name; left=$obj.Left; top=$obj.Top; width=$obj.Width; height=$obj.Height}
             if ($obj.HasTextFrame -eq -1 -and $obj.TextFrame.HasText -eq -1) {
-                if ($obj.TextFrame.TextRange.BoundHeight -gt ($obj.Height + 1) -or $obj.TextFrame.TextRange.BoundWidth -gt ($obj.Width + 1)) { $overflow += "slide-$page/$($obj.Name)" }
+                $innerHeight = $obj.Height - $obj.TextFrame.MarginTop - $obj.TextFrame.MarginBottom
+                $innerWidth = $obj.Width - $obj.TextFrame.MarginLeft - $obj.TextFrame.MarginRight
+                if ($obj.TextFrame.TextRange.BoundHeight -gt ($innerHeight + 1) -or $obj.TextFrame.TextRange.BoundWidth -gt ($innerWidth + 1)) { $overflow += "slide-$page/$($obj.Name)" }
             }
         }
         $audit += @{page=$page; kind=$s.kind; shapes=$items}

@@ -7,7 +7,10 @@ param(
     [Parameter(Mandatory)][string]$Purpose,
     [string]$GenerationRecord,
     [ValidateSet('imagegen','user-provided')][string]$Origin = 'imagegen',
-    [string]$Source
+    [string]$Source,
+    [ValidateSet('icon','illustration','logo')][string]$AssetKind = 'illustration',
+    [string]$ParentAssetId,
+    [int[]]$PageUsage = @()
 )
 . "$PSScriptRoot/common.ps1"
 if ($Id -notmatch '^[a-zA-Z0-9_-]+$') { throw 'Asset ID must contain letters, numbers, underscore or hyphen' }
@@ -20,6 +23,9 @@ if (@($data.assets | Where-Object id -eq $Id).Count) { throw 'Asset ID already r
 if ($Origin -eq 'imagegen' -and ([string]::IsNullOrWhiteSpace($Prompt) -or [string]::IsNullOrWhiteSpace($GenerationRecord))) { throw 'ImageGen prompt and generation record required' }
 if ($Origin -eq 'user-provided' -and [string]::IsNullOrWhiteSpace($Source)) { throw 'User asset source required' }
 $entry = [pscustomobject]@{id=$Id; path=$file.Substring($root.Length+1).Replace('\','/'); sha256=(Get-FileHash -LiteralPath $file).Hash; origin=$Origin; prompt=$Prompt; purpose=$Purpose; generation_record=$GenerationRecord; source=$Source}
+$entry | Add-Member -NotePropertyName asset_kind -NotePropertyValue $AssetKind
+$entry | Add-Member -NotePropertyName parent_asset_id -NotePropertyValue $ParentAssetId
+$entry | Add-Member -NotePropertyName page_usage -NotePropertyValue $PageUsage
 $data.assets = @($data.assets) + $entry
 $temp = "$manifestFull.$([Guid]::NewGuid().ToString('N')).tmp"
 try {

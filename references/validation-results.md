@@ -37,3 +37,6 @@
 - 标准 Skill Creator Python 验证器因环境缺 PyYAML 无法执行；未安装依赖。另用随包 PowerShell 检查必要 frontmatter、引用路径及包完整性。
 
 这是技术验证，不是完整四风格真实项目的端到端验收。需要用户逐页材料、参考文件及风格选择后才可验证正式设计质量。素材 provenance 字段与哈希不能独立证明模型来源，必须与实际工具记录核对。
+
+## v2.4 验证
+2026-10-06：包文件、入口frontmatter、链接、PowerShell语法、JSON与色板哈希检查通过。test_layout_spec.ps1实际生成并重新打开PowerPoint，核验内边距20点、垂直居中、24点字号对应30点行距、段后4点；实际PNG已查看。不同asset_id但相同sha256的场景图跨页复用被拒绝。新增文本溢出检查按扣除内边距后的可用区域计算。ImageGen图标/独立配图为新项目生成规则，本次未重做用户PPT。skill-creator通用quick_validate.py因运行时未安装PyYAML不可运行，未安装依赖；改用本包validate_package.ps1核验入口与结构。

@@ -20,5 +20,10 @@
   "sample_approval_message": null,
   "selected_style": "reference",
   "completed_slides": [],
-  "pending_items": []
+  "pending_items": [],
+  "chapter_mapping": [],
+  "icon_registry": [],
+  "image_page_usage": [],
+  "cover_metadata_confirmation": "",
+  "layout_review": []
 }

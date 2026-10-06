@@ -31,3 +31,11 @@ asset-manifest.json含assets，每项id/path/sha256/origin/purpose。ImageGen需
 ```
 
 examples/slide-plan.json为无个人数据技术测试，examples/layout-library.json为布局坐标。正式项目须补图；空manifest允许无图技术测试。脚本拒绝覆盖，仅关闭本次文稿，audit几何初筛后还须视觉检查。
+
+## v2.4 文字与生产规格
+
+text/title_style/page_style支持padding_left/right/top/bottom（point，默认0）、vertical_align=top/middle/bottom（默认top）、line_spacing（字号倍数，默认1.2）、paragraph_before/after（point，默认0）。align仍为left/center/right。内边距与行距参与实际PowerPoint排版；文本框需留足面积，无溢出仍须视觉检查。
+
+新正式plan必须含presentation_spec={speaker:'用户确认的姓名',presentation_date:'用户确认的时间'}；目录图片确有用户例外时记录toc_image_exception。每个body记录chapter_id（如一）、chapter_title、subtitle、logic_relation、icon_plan、image_plan；title为带编号完整一级标题，subtitle另建可见text。manifest每项asset_kind=icon/illustration/logo，可记录parent_asset_id、page_usage。ImageGen图标为栅格，不宣称可编辑矢量。
+
+validate_presentation_plan.ps1在组装前校验已启用规格的计划，检查封面显示、章节字段与编号、可见二级标题、图标来源和跨页配图重复。旧无presentation_spec示例仅作技术兼容测试，不作为新正式稿模板；不得为绕过规则在正式稿省略该字段。脚本不自动命名章节、生成图标或渲染subtitle，不能代替语义/视觉核验。

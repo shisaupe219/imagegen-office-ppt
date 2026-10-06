@@ -2,7 +2,7 @@
 param()
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-$required = @('SKILL.md','agents/openai.yaml','references/workflow.md','references/layout-library.md','references/design-contract.md','references/acceptance.md','examples/layout-library.json','examples/slide-plan.json','examples/asset-manifest.json','examples/state.json','scripts/common.ps1','scripts/check_environment.ps1','scripts/assemble_powerpoint.ps1','scripts/export_slides.ps1','scripts/smoke_test.ps1')
+$required = @('SKILL.md','agents/openai.yaml','references/workflow.md','references/layout-library.md','references/design-contract.md','references/acceptance.md','examples/layout-library.json','examples/slide-plan.json','examples/asset-manifest.json','examples/state.json','scripts/common.ps1','scripts/check_environment.ps1','scripts/assemble_powerpoint.ps1','scripts/export_slides.ps1','scripts/smoke_test.ps1','scripts/validate_presentation_plan.ps1','references/layout-semantics.md')
 foreach ($p in $required) { if (-not (Test-Path -LiteralPath (Join-Path $root $p))) { throw "Missing file: $p" } }
 if (-not (Test-Path -LiteralPath (Join-Path $root 'references/content-modes.md'))) { throw 'Missing content mode rules' }
 if (-not (Test-Path -LiteralPath (Join-Path $root 'references/visual-components.md'))) { throw 'Missing visual component rules' }

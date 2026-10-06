@@ -34,12 +34,30 @@ function Add-Text($Slide, [string]$Text, $Box, [string]$DefaultFont, [string]$Na
     $shape.Line.Visible = 0
     $frame = $shape.TextFrame
     $frame.MarginLeft = 0; $frame.MarginRight = 0; $frame.MarginTop = 0; $frame.MarginBottom = 0
+    foreach ($entry in @(@('padding_left','MarginLeft'),@('padding_right','MarginRight'),@('padding_top','MarginTop'),@('padding_bottom','MarginBottom'))) {
+        $padding = [double](Value-Or $Box $entry[0] 0)
+        if ($padding -lt 0) { throw 'Text padding cannot be negative' }
+        $frame.($entry[1]) = [single]$padding
+    }
+    if (($frame.MarginLeft+$frame.MarginRight) -ge $Box.w -or ($frame.MarginTop+$frame.MarginBottom) -ge $Box.h) { throw 'Padding consumes text box' }
+    $frame.VerticalAnchor = switch (Value-Or $Box 'vertical_align' 'top') { 'top' {1} 'middle' {3} 'bottom' {4} default {throw 'Unknown vertical alignment'} }
     $frame.WordWrap = -1; $frame.AutoSize = 0
     $range = $frame.TextRange
     $range.Text = $Text
     $range.Font.Name = [string](Value-Or $Box 'font' $DefaultFont)
     $range.Font.NameFarEast = [string](Value-Or $Box 'font' $DefaultFont)
     $range.Font.Size = [single](Value-Or $Box 'size' 22)
+    $spacing = [double](Value-Or $Box 'line_spacing' 1.2)
+    if ($spacing -le 0) { throw 'Line spacing must be positive' }
+    $range.ParagraphFormat.LineRuleWithin = 0
+    $range.ParagraphFormat.SpaceWithin = [single]($range.Font.Size * $spacing)
+    $range.ParagraphFormat.LineRuleBefore = 0
+    $range.ParagraphFormat.LineRuleAfter = 0
+    $before = [double](Value-Or $Box 'paragraph_before' 0)
+    $after = [double](Value-Or $Box 'paragraph_after' 0)
+    if ($before -lt 0 -or $after -lt 0) { throw 'Paragraph spacing cannot be negative' }
+    $range.ParagraphFormat.SpaceBefore = [single]$before
+    $range.ParagraphFormat.SpaceAfter = [single]$after
     $range.Font.Bold = if (Value-Or $Box 'bold' $false) { -1 } else { 0 }
     $range.Font.Color.RGB = Color-Value (Value-Or $Box 'color' '222222')
     $align = Value-Or $Box 'align' 'left'
